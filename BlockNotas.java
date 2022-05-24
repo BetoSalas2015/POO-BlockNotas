@@ -10,6 +10,7 @@ public class BlockNotas extends JFrame {
     private JMenuBar jmenuBar;
     private JMenu archivo,editar;
     private JMenuItem nuevo, abrir, abrirReciente, guardar, guardarComo, salir, imprimir;
+    private JMenuItem copiar, cortar, pegar;
 
     public BlockNotas() {
         super("Block de Notas");
@@ -18,8 +19,11 @@ public class BlockNotas extends JFrame {
         jmenuBar = new JMenuBar();
 
         creaMenuArchivo();
+        creaMenuEditar();
 
         jmenuBar.add(archivo);
+        jmenuBar.add(editar);
+
 
         add(textArea,"Center");
         setJMenuBar(jmenuBar);
@@ -44,14 +48,33 @@ public class BlockNotas extends JFrame {
         
     }
 
+    private void creaMenuEditar() {
+        editar = new JMenu();
+        editar.setMnemonic('E');
+        editar.setText("Editar");
+
+        copiar = new JMenuItem();
+        copiar.setMnemonic('C');
+        copiar.setText("Copiar");
+
+        cortar = new JMenuItem();
+        cortar.setMnemonic('O');
+        cortar.setText("Cortar");
+        
+        pegar = new JMenuItem();
+        pegar.setMnemonic('P');
+        pegar.setText("Pegar");
+
+        editar.add(copiar);
+        editar.add(cortar);
+        editar.add(pegar);
+
+    }
+
     private void creaMenuArchivo() {
         archivo = new JMenu();
         archivo.setMnemonic('A');
         archivo.setText("Archivo");
-
-        editar = new JMenu();
-        editar.setMnemonic('E');
-        editar.setText("Editar");
 
         salir = new JMenuItem();
         salir.setMnemonic('S');
